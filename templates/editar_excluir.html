@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar / Excluir Pacientes</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Editar / Excluir Pacientes</h2>
+        <ul>
+            {% for paciente in pacientes %}
+                <li>
+                    ID: {{ paciente.id }} | Nome: {{ paciente.nome }} | CPF: {{ paciente.cpf }}
+                    - <a href="/editar/{{ paciente.id }}">Editar</a>
+                    - <a href="/excluir/{{ paciente.id }}" onclick="return confirm('Deseja excluir?')">Excluir</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <br>
+        <a href="/dashboard" class="button">Voltar</a>
+    </div>
+</body>
+</html>

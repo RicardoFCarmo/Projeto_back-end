@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Paciente</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cadastro de Paciente</h2>
+        <form method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" required>
+            <label for="cpf">CPF:</label>
+            <input type="text" name="cpf" required>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <br>
+        <a href="/dashboard" class="button">Voltar</a>
+    </div>
+    {% if mensagem %}
+        <div class="flash">{{ mensagem }}</div>
+    {% endif %}
+</body>
+</html>
+
