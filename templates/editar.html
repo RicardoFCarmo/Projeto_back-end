@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Paciente</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Editar Paciente</h2>
+        <form method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" value="{{ paciente.nome }}" required>
+
+            <label for="cpf">CPF:</label>
+            <input type="text" name="cpf" value="{{ paciente.cpf }}" required>
+
+            <label for="data_nascimento">Data de Nascimento:</label>
+            <input type="date" name="data_nascimento" value="{{ paciente.data_nascimento }}" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" value="{{ paciente.email }}" required>
+
+            <button type="submit">Salvar Alterações</button>
+        </form>
+        <br>
+        <a href="/editar_excluir" class="button-small">Cancelar</a>
+    </div>
+</body>
+</html>

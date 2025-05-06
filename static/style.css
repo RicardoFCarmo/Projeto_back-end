@@ -80,6 +80,6 @@ button {
     text-decoration: none;
     display: inline-block;
     margin-top: 10px;
-    width: 150px; /* menor largura */
+    width: 150px; 
     font-size: 14px;
 }
