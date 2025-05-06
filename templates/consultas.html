@@ -1,23 +1,31 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!-- RU369001 -->
+<!DOCTYPE html> 
+<html lang="pt-br"> 
 <head>
-    <meta charset="UTF-8">
-    <title>Consultas Agendadas</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8"> 
+    <title>Consultas Agendadas</title> <!-- Título da aba do navegador -->
+    <link rel="stylesheet" href="/static/style.css"> <!-- Importa o arquivo CSS de estilos -->
 </head>
 <body>
-    <div class="container">
-        <h2>Consultas Agendadas</h2>
+    <div class="container"> 
+        <h2>Consultas Agendadas</h2> <!-- Título principal da página -->
+
         {% if consultas %}
+            <!-- Se houver consultas agendadas, exibe uma lista -->
             <ul>
                 {% for consulta in consultas %}
-                    <li>{{ consulta.paciente }} - {{ consulta.data }} às {{ consulta.hora }}</li><br>
+                    <!-- Exibe os dados da consulta: paciente, data e hora -->
+                    <li>Paciente - {{ consulta.paciente }} - Data/Hora - {{ consulta.data }} às {{ consulta.hora }}</li><br>
                 {% endfor %}
             </ul>
         {% else %}
+            <!-- Caso não existam consultas, exibe uma mensagem alternativa -->
             <p>Nenhuma consulta agendada.</p>
         {% endif %}
-        <br>
+
+        <br> 
+
+        
         <a href="/dashboard" class="button-small">Voltar ao menu</a>        
     </div>
 </body>

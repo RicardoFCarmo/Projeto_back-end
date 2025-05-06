@@ -1,22 +1,40 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!-- RU369001 -->
+<!DOCTYPE html> 
+<html lang="pt-br"> 
 <head>
-    <meta charset="UTF-8">
-    <title>Vida Plus - Dashboard</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8"> 
+    <title>Vida Plus - Dashboard</title> <!-- Título que aparece na aba do navegador -->
+    <link rel="stylesheet" href="/static/style.css"> <!-- Link para o arquivo CSS com os estilos da página -->
 </head>
 <body>
-    <div class="container2">
+    <div class="container2">      
+
+        <!-- Título principal da aplicação -->
         <h1>Vida Plus - Sistema de Pacientes</h1>
+        <!-- Saudação ao usuário -->
         <h2>Seja bem-vindo</h2>
 
+        <!-- Links estilizados como botões que levam às funcionalidades do sistema -->
         <a href="/cadastrar" class="button">Cadastrar Paciente</a><br>
         <a href="/editar_excluir" class="button">Editar / Excluir Pacientes</a><br>
         <a href="/listar" class="button">Listar Pacientes</a><br>
         <a href="/agendar" class="button">Agendar Consulta</a><br>
         <a href="/consultas" class="button">Ver Consultas Agendadas</a><br><br>
 
+        <!-- Link para encerrar a sessão do usuário e voltar à tela de login -->
         <a href="/logout" class="button-small">Sair</a>
+
+        <!-- Exibe uma mensagem de sucesso caso login e senha estejam corretos -->
+        {% with mensagens = get_flashed_messages() %}
+          {% if mensagens %}
+            <div class="mensagem-autorizada">
+              {% for msg in mensagens %}
+                <p>{{ msg }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+        
     </div>
 </body>
 </html>

@@ -1,35 +1,54 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!-- RU369001 -->
+<!DOCTYPE html> 
+<html lang="pt-br"> 
 <head>
-    <meta charset="UTF-8">
-    <title>Cadastrar Paciente</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8"> 
+    <title>Cadastrar Paciente</title> <!-- Título exibido na aba do navegador -->
+    <link rel="stylesheet" href="/static/style.css"> <!-- Importa o arquivo de estilos CSS -->
 </head>
 <body>
-    <div class="container">
-        <h2>Cadastro de Paciente</h2>
-        <form method="post">
+    <div class="container"> 
+        <h2>Cadastro de Paciente</h2> <!-- Título principal da página -->
+
+        <!-- Início do formulário de cadastro de paciente -->
+        <form method="post"> 
+            
+            <!-- Campo de entrada para o nome do paciente -->
             <label for="nome">Nome:</label>
             <input type="text" name="nome" required>
 
+            <!-- Campo de entrada para o CPF do paciente -->
             <label for="cpf">CPF:</label>
             <input type="text" name="cpf" required>
 
+            <!-- Campo de entrada para a data de nascimento do paciente -->
             <label for="data_nascimento">Data de Nascimento:</label>
             <input type="date" name="data_nascimento" required>
 
+            <!-- Campo de entrada para o e-mail do paciente -->
             <label for="email">Email:</label>
             <input type="email" name="email" required>
 
+            <!-- Botão para enviar o formulário e cadastrar o paciente -->
             <button type="submit">Cadastrar</button>
         </form>
-        <br>
+
+        <br> 
+
         
         <a href="/dashboard" class="button-small">Voltar</a>
     </div>
-
-    {% if mensagem %}
-        <div class="flash">{{ mensagem }}</div>
-    {% endif %}
 </body>
+
+    <!-- Exibe uma mensagem de sucesso caso o cadastro esteja correto -->
+    {% with mensagens = get_flashed_messages() %}
+      {% if mensagens %}
+        <div class="mensagem-autorizada">
+         {% for msg in mensagens %}
+          <p>{{ msg }}</p>
+         {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
 </html>

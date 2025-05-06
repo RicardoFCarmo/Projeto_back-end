@@ -1,24 +1,35 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!-- RU369001 -->
+<!DOCTYPE html> 
+<html lang="pt-br"> 
 <head>
-    <meta charset="UTF-8">
-    <title>Lista de Pacientes</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8"> 
+    <title>Lista de Pacientes</title> <!-- Define o título da aba do navegador -->
+    <link rel="stylesheet" href="/static/style.css"> <!-- Importa o arquivo de estilos CSS -->
 </head>
 <body>
-    <div class="container">
-        <h1>Lista de Pacientes</h1>
-        {% if pacientes %}
-            <ul>
-                {% for paciente in pacientes %}
-                    <li>ID: {{ paciente.id }} | Nome: {{ paciente.nome }} | CPF: {{ paciente.cpf }} 
-                        | DN: {{ paciente.data_nascimento }} | EMAIL: {{ paciente.email }}</li><br>
+    <div class="container"> 
+        <h1>Lista de Pacientes</h1> <!-- Título principal da página -->
+
+        {% if pacientes %} <!-- Verifica se há pacientes cadastrados (estrutura do Jinja2) -->
+            <ul> <!-- Lista não ordenada para exibir os pacientes -->
+                {% for paciente in pacientes %} <!-- Loop para percorrer todos os pacientes -->
+                    <li>
+                        ID: {{ paciente.id }} |
+                        Nome: {{ paciente.nome }} |
+                        CPF: {{ paciente.cpf }} |
+                        Data Nascimento: {{ paciente.data_nascimento }} |
+                        Email: {{ paciente.email }}
+                    </li>
+                    <br> <!-- Espaço entre cada paciente listado -->
                 {% endfor %}
             </ul>
-        {% else %}
+        {% else %} <!-- Se a lista estiver vazia, exibe a mensagem abaixo -->
             <p>Nenhum paciente cadastrado.</p>
         {% endif %}
+
+        <!-- Link para retornar ao menu principal (dashboard) -->
         <a href="/dashboard" class="button-small">Voltar</a>
     </div>
 </body>
 </html>
+

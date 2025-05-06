@@ -1,34 +1,53 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!-- RU369001 -->
+<!DOCTYPE html> 
+<html lang="pt-br"> 
 <head>
-    <meta charset="UTF-8">
-    <title>Agendar Consulta</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8"> 
+    <title>Agendar Consulta</title> <!-- Título exibido na aba do navegador -->
+    <link rel="stylesheet" href="/static/style.css"> <!-- Importa o arquivo de estilos CSS -->
 </head>
 <body>
-    <div class="container">
-        <h2>Agendar Consulta</h2>
-        <form method="post">
+    <div class="container"> <!-- Div que agrupa o conteúdo com estilo aplicado -->
+        <h2>Agendar Consulta</h2> <!-- Título principal da página -->
+
+        <!-- Início do formulário de agendamento -->
+        <form method="post"> <!-- O método POST envia os dados ao servidor de forma oculta -->
+
+            <!-- Campo de seleção de paciente -->
             <label for="paciente">Paciente:</label>
-            <select name="paciente_id" required>
-                {% for paciente in pacientes %}
+            <select name="paciente_id" required> 
+                {% for paciente in pacientes %} 
                     <option value="{{ paciente.id }}">{{ paciente.nome }} (CPF: {{ paciente.cpf }})</option>
                 {% endfor %}
             </select>
 
+            <!-- Campo para selecionar a data da consulta -->
             <label for="data">Data:</label>
-            <input type="date" name="data" required>
+            <input type="date" name="data" required> 
 
+            <!-- Campo para selecionar o horário da consulta -->
             <label for="hora">Hora:</label>
-            <input type="time" name="hora" required>
+            <input type="time" name="hora" required> 
 
-            <button type="submit">Agendar</button>
+            <button type="submit">Agendar</button> 
         </form>
-        <br>        
+
+        <br> 
+
+        <!-- Link para retornar ao menu principal (dashboard) -->
         <a href="/dashboard" class="button-small">Voltar ao menu</a>
-    </div>
-    {% if mensagem %}
-        <div class="flash">{{ mensagem }}</div>
-    {% endif %}
+    </div>    
 </body>
+
+    <!-- Exibe mensagem de sucesso (ou erro) se ela existir -->    
+    {% with mensagens = get_flashed_messages() %}
+        {% if mensagens %}
+           <div class="mensagem-autorizada">
+              {% for msg in mensagens %}
+                <p>{{ msg }}</p>
+              {% endfor %}
+           </div>
+        {% endif %}
+    {% endwith %}
+
 </html>

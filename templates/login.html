@@ -1,25 +1,42 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!-- RU369001 -->
+<!DOCTYPE html> 
+<html lang="pt-br"> 
 <head>
-    <meta charset="UTF-8">
-    <title>Login - Vida Plus</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8"> 
+    <title>Login - Vida Plus</title> <!-- Título da aba do navegador -->
+    <link rel="stylesheet" href="/static/style.css"> <!-- Importa o arquivo de estilos CSS externo -->
 </head>
 <body>
-    <div class="container">
-        <h1>Login Sistema Hospitalar</h1>
-        {% if erro %}
-            <p class="erro">{{ erro }}</p>
-        {% endif %}
+    <div class="container"> 
+        <h1>Login Sistema Hospitalar</h1> <!-- Título principal da página -->
+
+        <!-- Formulário de login que envia os dados via método POST -->
         <form method="post">
+            <!-- Campo de entrada para o nome de usuário -->
             <label for="usuario">Usuário:</label>
             <input type="text" name="usuario" required>
 
+            <!-- Campo de entrada para a senha -->
             <label for="senha">Senha:</label>
             <input type="password" name="senha" required>
 
+            <!-- Botão para submeter o formulário -->
             <button type="submit">Entrar</button>
+
         </form>
+
     </div>
 </body>
+
+    <!-- Exibe uma mensagem de  erro, caso login ou senha estejam incorretos -->
+    {% with mensagens = get_flashed_messages() %}
+        {% if mensagens %}
+        <div class="mensagem-autorizada">
+            {% for msg in mensagens %}
+            <p>{{ msg }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endwith %}
+
 </html>

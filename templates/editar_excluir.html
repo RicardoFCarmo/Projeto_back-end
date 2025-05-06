@@ -1,24 +1,48 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!-- RU369001 -->
+<!DOCTYPE html> 
+<html lang="pt-br"> 
 <head>
-    <meta charset="UTF-8">
-    <title>Editar / Excluir Pacientes</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8"> 
+    <title>Editar / Excluir Pacientes</title> <!-- Título exibido na aba do navegador -->
+    <link rel="stylesheet" href="/static/style.css"> <!-- Importa o arquivo de estilo CSS -->
 </head>
 <body>
-    <div class="container">
+    <div class="container"> <!-- Container central para o conteúdo da página -->
+
+        <!-- Título da página -->
         <h2>Editar / Excluir Pacientes</h2>
+
         <ul>
+            
             {% for paciente in pacientes %}
                 <li>
+                    <!-- Mostra o ID, nome e CPF do paciente -->
                     ID: {{ paciente.id }} | Nome: {{ paciente.nome }} | CPF: {{ paciente.cpf }}
+                    
+                    <!-- Link para editar os dados do paciente -->
                     - <a href="/editar/{{ paciente.id }}">Editar</a>
+
+                    <!-- Link para excluir o paciente, com confirmação antes de prosseguir -->
                     - <a href="/excluir/{{ paciente.id }}" onclick="return confirm('Deseja excluir?')">Excluir</a>
                 </li>
             {% endfor %}
         </ul>
+
         <br>
+        <!-- Botão de retorno ao menu principal -->
         <a href="/dashboard" class="button-small">Voltar</a>
     </div>
+    
+        <!-- Exibe uma mensagem de sucesso caso o cadastro esteja correto -->
+        {% with mensagens = get_flashed_messages() %}
+            {% if mensagens %}
+                <div class="mensagem-autorizada">
+                    {% for msg in mensagens %}
+                    <p>{{ msg }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
 </body>
 </html>

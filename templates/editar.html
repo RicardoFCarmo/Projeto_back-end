@@ -1,30 +1,45 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!-- RU369001 -->
+<!DOCTYPE html> 
+<html lang="pt-br"> 
 <head>
-    <meta charset="UTF-8">
-    <title>Editar Paciente</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8"> 
+    <title>Editar Paciente</title> <!-- Título da aba do navegador -->
+    <link rel="stylesheet" href="/static/style.css"> <!-- Link para o arquivo de estilo CSS externo -->
 </head>
 <body>
-    <div class="container">
+    <div class="container"> 
+
+        <!-- Título da página -->
         <h2>Editar Paciente</h2>
-        <form method="post">
+
+        <!-- Formulário para edição dos dados do paciente -->
+        <form method="post"> 
+            
+            <!-- Campo para editar o nome do paciente, preenchido com o valor atual -->
             <label for="nome">Nome:</label>
             <input type="text" name="nome" value="{{ paciente.nome }}" required>
 
+            <!-- Campo para editar o CPF do paciente -->
             <label for="cpf">CPF:</label>
             <input type="text" name="cpf" value="{{ paciente.cpf }}" required>
 
+            <!-- Campo para editar a data de nascimento -->
             <label for="data_nascimento">Data de Nascimento:</label>
             <input type="date" name="data_nascimento" value="{{ paciente.data_nascimento }}" required>
 
+            <!-- Campo para editar o email -->
             <label for="email">Email:</label>
             <input type="email" name="email" value="{{ paciente.email }}" required>
 
+            <!-- Botão para enviar o formulário e salvar as alterações -->
             <button type="submit">Salvar Alterações</button>
         </form>
+
         <br>
+
+        <!-- Link para cancelar a edição e voltar para a página de lista de pacientes -->
         <a href="/editar_excluir" class="button-small">Cancelar</a>
     </div>
 </body>
 </html>
+
