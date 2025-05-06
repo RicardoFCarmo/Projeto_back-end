@@ -11,8 +11,8 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-.container2 {
+}
+.container2{
     max-width: 600px;
     margin: auto;
     background: #ffffff;
@@ -20,7 +20,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    }    
+}  
 
 h1, h2 {
     text-align: center;
@@ -50,30 +50,7 @@ button, .button {
     text-decoration: none;
     display: inline-block;
     margin-top: 10px;
+    width: 80%;
+    max-width: 300px;
 }
 
-button:hover, .button:hover {
-    background-color: #2980b9;
-}
-
-.logout {
-    display: inline-block;
-    margin-top: 10px;
-    color: #e74c3c;
-    text-decoration: none;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    padding: 6px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.footer-buttons {
-    margin-top: 30px;
-    text-align: center;
-}

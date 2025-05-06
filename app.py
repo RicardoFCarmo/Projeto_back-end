@@ -6,6 +6,7 @@ app.secret_key = 'vida_plus_segura'
 usuarios = {'admin': 'senha123'}
 
 pacientes = []
+consultas = []
 contador_id = 1
 
 @app.route('/', methods=['GET', 'POST'])
@@ -67,6 +68,29 @@ def editar_excluir():
 @app.route('/listar')
 def listar():
     return render_template('listar.html', pacientes=pacientes)
+
+@app.route('/agendar', methods=['GET', 'POST'])
+def agendar():
+    mensagem = ''
+    if request.method == 'POST':
+        paciente_id = int(request.form['paciente_id'])
+        data = request.form['data']
+        hora = request.form['hora']
+        paciente = next((p for p in pacientes if p['id'] == paciente_id), None)
+        if paciente:
+            consulta = {
+                'id': len(consultas) + 1,
+                'paciente': paciente,
+                'data': data,
+                'hora': hora
+            }
+            consultas.append(consulta)
+            mensagem = 'Consulta agendada com sucesso!'
+    return render_template('agendar.html', pacientes=pacientes, mensagem=mensagem)
+
+@app.route('/consultas')
+def consultas_agendadas():
+    return render_template('consultas.html', consultas=consultas)
 
 @app.route('/logout')
 def logout():
