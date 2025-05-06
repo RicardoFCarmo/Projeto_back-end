@@ -34,10 +34,14 @@ def cadastrar():
     if request.method == 'POST':
         nome = request.form['nome']
         cpf = request.form['cpf']
+        data_nascimento = request.form['data_nascimento']
+        email = request.form['email']
         paciente = {
             'id': contador_id,
             'nome': nome,
-            'cpf': cpf
+            'cpf': cpf,
+            'data_nascimento': data_nascimento,
+            'email': email
         }
         pacientes.append(paciente)
         contador_id += 1
@@ -52,6 +56,8 @@ def editar(id):
     if request.method == 'POST':
         paciente['nome'] = request.form['nome']
         paciente['cpf'] = request.form['cpf']
+        paciente['data_nascimento'] = request.form['data_nascimento']
+        paciente['email'] = request.form['email']
         return redirect(url_for('editar_excluir'))
     return render_template('editar.html', paciente=paciente)
 

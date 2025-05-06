@@ -24,8 +24,11 @@
 
             <button type="submit">Agendar</button>
         </form>
-        <br>
-        <a href="{{ url_for('dashboard') }}">Voltar ao menu</a>
+        <br>        
+        <a href="/dashboard" class="button-small">Voltar ao menu</a>
     </div>
+    {% if mensagem %}
+        <div class="flash">{{ mensagem }}</div>
+    {% endif %}
 </body>
 </html>

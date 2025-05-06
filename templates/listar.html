@@ -11,13 +11,14 @@
         {% if pacientes %}
             <ul>
                 {% for paciente in pacientes %}
-                    <li>ID: {{ paciente.id }} | Nome: {{ paciente.nome }} | CPF: {{ paciente.cpf }}</li>
+                    <li>ID: {{ paciente.id }} | Nome: {{ paciente.nome }} | CPF: {{ paciente.cpf }} 
+                        | DN: {{ paciente.data_nascimento }} | EMAIL: {{ paciente.email }}</li><br>
                 {% endfor %}
             </ul>
         {% else %}
             <p>Nenhum paciente cadastrado.</p>
         {% endif %}
-        <a href="/dashboard" class="button">Voltar</a>
+        <a href="/dashboard" class="button-small">Voltar</a>
     </div>
 </body>
 </html>

@@ -11,14 +11,14 @@
         {% if consultas %}
             <ul>
                 {% for consulta in consultas %}
-                    <li>{{ consulta.paciente }} - {{ consulta.data }} às {{ consulta.hora }}</li>
+                    <li>{{ consulta.paciente }} - {{ consulta.data }} às {{ consulta.hora }}</li><br>
                 {% endfor %}
             </ul>
         {% else %}
             <p>Nenhuma consulta agendada.</p>
         {% endif %}
         <br>
-        <a href="{{ url_for('dashboard') }}">Voltar ao menu</a>
+        <a href="/dashboard" class="button-small">Voltar ao menu</a>        
     </div>
 </body>
 </html>
