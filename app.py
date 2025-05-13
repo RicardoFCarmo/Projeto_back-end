@@ -1,3 +1,5 @@
+# Ricardo F Carmo RU - 369001
+
 # Importa os módulos necessários do Flask
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from functools import wraps  # Para criar o decorador
@@ -68,7 +70,6 @@ def cadastrar():
         pacientes.append(paciente)  # Adiciona à lista de pacientes
         contador_id += 1  # Incrementa o ID para o próximo paciente
         flash('Cadastro realizado com sucesso!')
-        # mensagem = 'Cadastro realizado com sucesso!'
     return render_template('cadastrar.html', mensagem=mensagem)
 
 # Rota para editar os dados de um paciente
@@ -131,7 +132,6 @@ def agendar():
             }
             consultas.append(consulta)
             flash('Consulta agendada com sucesso!')
-            # mensagem = 'Consulta agendada com sucesso!'
     return render_template('agendar.html', pacientes=pacientes, mensagem=mensagem)
 
 # Rota para visualizar todas as consultas agendadas
